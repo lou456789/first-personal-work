@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+        <!-- <script src="../../echarts/dist/echarts.js"></script> -->
+        <script src='../dist/echarts-wordcloud.js'></script>
+    </head>
+    <body>
+        <style>
+            html, body, #main {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+            }
+        </style>
+        <div id='main'></div>
+        <script>
+            var chart = echarts.init(document.getElementById('main'));
+
+            var option = {
+                tooltip: {},
+                series: [ {
+                    type: 'wordCloud',
+                    gridSize: 2,
+                    sizeRange: [12, 50],
+                    rotationRange: [-90, 90],
+                    shape: 'pentagon',
+                    width: 600,
+                    height: 400,
+                    drawOutOfBound: true,
+                    textStyle: {
+                        color: function () {
+                            return 'rgb(' + [
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160),
+                                Math.round(Math.random() * 160)
+                            ].join(',') + ')';
+                        }
+                    },
+                    emphasis: {
+                        textStyle: {
+                            shadowBlur: 10,
+                            shadowColor: '#333'
+                        }
+                    },
+                    data: [
+                        {
+                            name: '加油',
+                            value: 10000,
+                            textStyle: {
+                                color: 'black'
+                            },
+                            emphasis: {
+                                textStyle: {
+                                    color: 'red'
+                                }
+                            }
+                        },
+                        {
+                            name: '口罩',
+                            value: 650
+                        },
+                        {
+                            name: '抽纸',
+                            value: 560
+                        },
+                        {
+                            name: '拇指',
+                            value: 490
+                        },
+                        {
+                            name: '就是',
+                            value: 490
+                        },
+                        {
+                            name: '月饼',
+                            value: 430
+                        },
+                        {
+                            name: '武汉',
+                            value: 410
+                        },
+                        {
+                            name: '志愿鹅',
+                            value: 370
+                        },
+                        {
+                            name: '一个',
+                            value: 350
+                        },
+                        {
+                            name: '真的',
+                            value: 330
+                        },
+                        {
+                            name: '没有',
+                            value: 330
+                        },
+                        {
+                            name: '哈哈哈',
+                            value: 330
+                        },
+                        {
+                            name: '致敬',
+                            value: 320
+                        },
+                        {
+                            name: '不是',
+                            value: 300
+                        },
+                        {
+                            name: '那个',
+                            value: 280
+                        },
+                        {
+                            name: '中国',
+                            value: 260
+                        },
+                        {
+                            name: '真实',
+                            value: 250
+                        },
+                        {
+                            name: '这么',
+                            value: 220
+                        },
+                        {
+                            name: '时候',
+                            value: 220
+                        }
+                    ]
+                } ]
+            };
+
+            chart.setOption(option);
+
+            window.onresize = chart.resize;
+        </script>
+    </body>
+</html>
